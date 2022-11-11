@@ -10,7 +10,7 @@ export default function Head() {
       <meta property="og:url" content="https://pfp.konojunya.com" />
       <meta
         property="og:image"
-        content="https://pfp.konojunya.com/image/ogp.png"
+        content="https://pfp.konojunya.com/image/ogp.jpeg"
       />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@konojunya" />
