@@ -1,0 +1,59 @@
+name: Deploy
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Create GitHub Deployments
+        uses: chrnorm/deployment-action@releases/v1
+        id: deployments
+        with:
+          token: "${{ github.token }}"
+          environment: "production"
+          ref: "${{ github.sha }}"
+
+      - name: Use Node.js v16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+
+      - name: install deps
+        run: yarn --frozen-lockfile
+
+      - name: test
+        run: yarn test
+
+      - name: build
+        run: yarn build
+
+      - name: export
+        run: yarn export
+
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
+          projectId: pfp-konojunya-com
+          channelId: live
+
+      - name: Update Github Deployments Status To Success
+        uses: chrnorm/deployment-status@releases/v1
+        with:
+          token: "${{ github.token }}"
+          state: "success"
+          deployment_id: ${{ steps.deployments.outputs.deployment_id }}
+          environment_url: "https://pfp.konojunya.com"
+
+      - name: Update Github Deployments Status To Error
+        if: failure()
+        uses: chrnorm/deployment-status@releases/v1
+        with:
+          token: "${{ github.token }}"
+          state: "error"
+          deployment_id: ${{ steps.deployments.outputs.deployment_id }}

@@ -1,0 +1,23 @@
+name: CI
+
+on: push
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js v16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+
+      - name: install deps
+        run: yarn --frozen-lockfile
+
+      - name: test
+        run: yarn test
+
+      - name: build
+        run: yarn build
