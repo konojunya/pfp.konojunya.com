@@ -1,0 +1,14 @@
+{
+  "short_name": "JJ PFP",
+  "name": "JJ PFP",
+  "icons": [
+    {
+      "src": "/image/favicon.jpg",
+      "sizes": "72x72 96x96 128x128 256x256"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#111111",
+  "background_color": "#111111"
+}

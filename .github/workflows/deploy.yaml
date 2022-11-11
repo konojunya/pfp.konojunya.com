@@ -31,6 +31,8 @@ jobs:
 
       - name: build
         run: yarn build
+        env:
+          INFURA_API_KEY: "${{ secrets.INFURA_API_KEY }}"
 
       - name: export
         run: yarn export

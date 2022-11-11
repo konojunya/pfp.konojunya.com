@@ -6,10 +6,10 @@
   "author": "konojunya <junya03dance@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "next",
+    "dev": "next dev",
     "build": "next build",
     "export": "next export",
-    "start": "next start -p $PORT",
+    "start": "next start",
     "lint": "gts lint './**/*.tsx' './**/*.ts'",
     "format": "run-p -l format:*",
     "format:prettier": "prettier --config ./.prettierrc.js --write '**/*.+(ts|tsx|js|md|json)'",

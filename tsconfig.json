@@ -15,15 +15,27 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "lib": ["es2019", "dom"],
-    "incremental": true
+    "lib": [
+      "es2019",
+      "dom"
+    ],
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
-  "exclude": ["node_modules", "**/*.js"],
+  "exclude": [
+    "node_modules",
+    "**/*.js"
+  ],
   "include": [
     "types/**/*.d.ts",
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "test/JJPFP.js"
+    "test/JJPFP.js",
+    ".next/types/**/*.ts"
   ]
 }
