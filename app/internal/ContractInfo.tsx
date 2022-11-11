@@ -7,15 +7,14 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import type { Data } from "../page";
 import Script from "next/script";
-import { BreakPoint } from "../../styles/variants";
 
 const Wrapper = styled.div`
   min-height: 100vh;
   --parallelowow-tile-width: 70;
   --parallelowow-base-color: rgb(167, 51, 230);
-  --parallelowow-color-step: 5;
-  --parallelowow-probability: 0.6;
-  --parallelowow-stroke-weight: 0;
+  --parallelowow-color-step: 2;
+  --parallelowow-probability: 0.8;
+  --parallelowow-stroke-weight: -1;
   background: paint(parallelowow), var(--parallelowow-base-color);
 `;
 
