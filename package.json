@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
+    "export": "next export",
     "start": "next start -p $PORT",
     "lint": "gts lint './**/*.tsx' './**/*.ts'",
     "format": "run-p -l format:*",
