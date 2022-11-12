@@ -4,6 +4,6 @@ module.exports = {
   swcMinify: true,
   poweredByHeader: false,
   experimental: {
-    appDir: false,
+    appDir: true,
   },
 };
